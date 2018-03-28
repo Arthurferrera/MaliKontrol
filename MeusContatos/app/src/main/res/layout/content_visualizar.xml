@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="br.com.senaijandira.meuscontatos.VisualizarActivity"
+    tools:showIn="@layout/activity_visualizar"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="25dp">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="150dp"
+            android:id="@+id/img_view_contato"
+            android:src="@android:drawable/ic_menu_camera"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_nome"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            android:textSize="21sp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Telefone: "
+            android:layout_marginTop="15dp"
+            android:textSize="18sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_telefone"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:text="11 95321-5453"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email: "
+            android:layout_marginTop="15dp"
+            android:textSize="18sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_email"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:text="fulano@gmail.com"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Data de Nascimento: "
+            android:layout_marginTop="15dp"
+            android:textSize="18sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_nascimento"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:text="12/06/1985"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="-165dp"
+        android:paddingLeft="30dp">
+
+        <Button
+            android:layout_width="75dp"
+            android:layout_height="40dp"
+            android:text="ligar"
+            android:id="@+id/btn_ligar"
+            android:onClick="ligar"
+            />
+
+        <Button
+            android:layout_width="75dp"
+            android:layout_height="40dp"
+            android:text="enviar"
+            android:id="@+id/btn_enviar"
+            android:layout_marginTop="25dp"
+            android:onClick="mandarEmail"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_id_contato"
+        android:textSize="20sp"
+        android:layout_marginTop="70dp"
+        />
+
+</LinearLayout>
