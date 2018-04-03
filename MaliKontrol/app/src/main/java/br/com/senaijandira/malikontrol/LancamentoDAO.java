@@ -68,6 +68,32 @@ public class LancamentoDAO {
         return retorno;
     }
 
+    public Lancamento selecionarUm(Context context, int id){
+
+        SQLiteDatabase db = new DbHelper(context).getReadableDatabase();
+
+        String sql = "SELECT * FROM tbl_lancamentos l INNER JOIN tbl_categoria c ON l.idCategoria = c._id AND L._id =" + id +";";
+
+        Cursor cursor = db.rawQuery(sql, null);
+
+        if (cursor.getCount() > 0){
+            cursor.moveToFirst();
+            Lancamento l = new Lancamento();
+            l.setIdlancamento(cursor.getInt(0));
+            l.setNome(cursor.getString(1));
+            l.setTipoLancamento(cursor.getString(2));
+            l.setValor(cursor.getDouble(3));
+            l.setData(cursor.getString(4));
+            l.setIdCategoria(cursor.getInt(5));
+            l.setNomeCategoria(cursor.getString(7));
+
+            cursor.close();
+            return l;
+        }
+        return null;
+    }
+
+
     public Double mostrarSaldo(Context context) {
 
         SQLiteDatabase db = new DbHelper(context).getReadableDatabase();

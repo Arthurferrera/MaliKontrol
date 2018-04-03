@@ -75,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-//
         ArrayList<Lancamento> ultimosLancamentos;
 
 //        chamando o metodo que mostra os lancamentos
@@ -117,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void AbrirTela(View view) {
-        Intent intencao = new Intent(this, AdicionarLancamento.class);
+        Intent intencao = new Intent(this, LancamentosActivity.class);
         startActivity(intencao);
     }
 }

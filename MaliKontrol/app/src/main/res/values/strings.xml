@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Mali Kontrol</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_adcionar_receita">AdcionarReceitaActivity</string>
-    <string name="title_activity_adicionar_lancamento">AdicionarLancamento</string>
+    <string name="title_activity_adicionar_lancamento">Adicione um Lançamento</string>
+    <string name="title_activity_lancamentos">LancamentosActivity</string>
+    <string name="title_activity_visualizar">VisualizarActivity</string>
 </resources>
