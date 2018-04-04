@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -16,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     TextView lbl_saldo, data_consulta;
     ListView list_ultimos_lancametos;
@@ -41,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
         adapter = new LancamentoAdapter(this, new ArrayList<Lancamento>());
 
         list_ultimos_lancametos.setAdapter(adapter);
+
+        list_ultimos_lancametos.setOnItemClickListener(this);
 
         /*ArrayList<Lancamento> lstLancamentos = new ArrayList<>();
         lstLancamentos.add(new Lancamento("Almoço com a mina", "R$ 44,96"));
@@ -89,6 +92,11 @@ public class MainActivity extends AppCompatActivity {
         NumberFormat f = NumberFormat.getCurrencyInstance(new Locale("pt","br"));
         Double saldo = dao.mostrarSaldo(this);
         lbl_saldo.setText("" + f.format(saldo) );
+        if(saldo < 0){
+            lbl_saldo.setTextColor(getResources().getColor(R.color.vermelho));
+        } else {
+            lbl_saldo.setTextColor(getResources().getColor(R.color.verde));
+        }
 
 
     }
@@ -118,5 +126,15 @@ public class MainActivity extends AppCompatActivity {
     public void AbrirTela(View view) {
         Intent intencao = new Intent(this, LancamentosActivity.class);
         startActivity(intencao);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+        Lancamento item  = adapter.getItem(i);
+        Intent intent = new Intent(this, VisualizarActivity.class);
+        intent.putExtra("idLancamento", item.getIdlancamento());
+        startActivity(intent);
+
     }
 }

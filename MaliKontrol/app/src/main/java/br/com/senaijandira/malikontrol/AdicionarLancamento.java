@@ -39,7 +39,6 @@ public class AdicionarLancamento extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
         rd_receita = (RadioButton) findViewById(R.id.rd_receita);
         rd_despesa = (RadioButton) findViewById(R.id.rd_despesa);
         txt_nome_lancamento = (EditText) findViewById(R.id.txt_nome_lancamento);
@@ -56,6 +55,21 @@ public class AdicionarLancamento extends AppCompatActivity {
         String dataAtual = String.format("%02d/%02d/%d", dia, mes+1, ano);
         txt_data_lancamento.setText(dataAtual);
 
+        Integer idLancamento = getIntent().getIntExtra("idLancamento", 0);
+        if(idLancamento != 0){
+            modoEdicao = true;
+            lancamento = LancamentoDAO.getInstance().selecionarUm(this, idLancamento);
+            txt_nome_lancamento.setText(lancamento.getNome());
+            //sp_categoria.setSelection(lancamento.getIdCategoria());
+            //TODO: pegar informação pra por no spinner
+            txt_valor_lancamento.setText(lancamento.getValor().toString());
+            txt_data_lancamento.setText(lancamento.getData());
+            if(lancamento.getTipoLancamento().equals("R")){
+                rd_receita.setChecked(true);
+            } else if(lancamento.getTipoLancamento().equals("D")){
+                rd_despesa.setChecked(true);
+            }
+        }
 
         ArrayList<Categoria> categorias = dao.selecionarTodas(this);
 
@@ -84,6 +98,7 @@ public class AdicionarLancamento extends AppCompatActivity {
             txt_valor_lancamento.setError("Preencha o valor");
             return;
         }
+
 //      verificando se campo está vazio
         if(txt_data_lancamento.getText().toString().isEmpty()){
             txt_data_lancamento.setError("Preencha a data");
@@ -98,13 +113,17 @@ public class AdicionarLancamento extends AppCompatActivity {
 //        verificando qual radio está selecionado para aplicar a lógica de como salvar o valor
 
         Double valor  = Double.parseDouble(txt_valor_lancamento.getText().toString());
+        if(valor < 0){
+            txt_valor_lancamento.setError("Por Favor, apague o sinal '-' !");
+            return;
+        }
         if (rd_receita.isChecked()){
             lanc.setTipoLancamento("R");
             lanc.setValor(valor);
-        } else {
+        } else if (rd_despesa.isChecked()){
+            lanc.setTipoLancamento("D");
             valor = valor * -1;
             lanc.setValor(valor);
-            lanc.setTipoLancamento("D");
         }
 
         lanc.setNome(txt_nome_lancamento.getText().toString());
@@ -114,10 +133,14 @@ public class AdicionarLancamento extends AppCompatActivity {
         Categoria categoria = (Categoria) sp_categoria.getSelectedItem();
         lanc.setIdCategoria(categoria.getId());
 
-        LancamentoDAO.getInstance().inserir(this, lanc);
-        Toast.makeText(this, "Salvo com sucesso!", Toast.LENGTH_SHORT).show();
+        if(modoEdicao){
+            LancamentoDAO.getInstance().atualizar(this, lanc);
+            Toast.makeText(this, "Atualizado com sucesso!", Toast.LENGTH_SHORT).show();
+        } else {
+            LancamentoDAO.getInstance().inserir(this, lanc);
+            Toast.makeText(this, "Salvo com sucesso!", Toast.LENGTH_SHORT).show();
+        }
 
         finish();
-
     }
 }

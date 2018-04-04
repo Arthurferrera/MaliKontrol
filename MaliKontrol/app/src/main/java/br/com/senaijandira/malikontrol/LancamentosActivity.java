@@ -31,10 +31,10 @@ public class LancamentosActivity extends AppCompatActivity implements AdapterVie
         l.setIdlancamento(0);
 
         list_todos_lancamentos = (ListView) findViewById(R.id.list_todos_lancamentos);
-
         adapter = new LancamentoAdapter(this, new ArrayList<Lancamento>());
-
         list_todos_lancamentos.setAdapter(adapter);
+
+        list_todos_lancamentos.setOnItemClickListener(this);
     }
 
     @Override

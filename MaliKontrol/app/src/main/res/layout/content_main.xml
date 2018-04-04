@@ -11,17 +11,17 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="165dp"
-                android:background="@color/verde"
+                android:background="@color/cinzaClaro"
                 android:orientation="vertical"
                 android:paddingTop="15dp">
 
@@ -31,7 +31,8 @@
                     android:layout_marginTop="10dp"
                     android:gravity="center_horizontal"
                     android:text="Saldo Atual"
-                    android:textSize="25sp" />
+                    android:textSize="25sp"
+                    android:textColor="@color/preto"/>
 
                 <TextView
                     android:id="@+id/lbl_saldo"
@@ -40,22 +41,24 @@
                     android:layout_marginTop="25dp"
                     android:gravity="center_horizontal"
                     android:text="R$ 0.000,00"
-                    android:textSize="28sp" />
+                    android:textSize="28sp"
+                    />
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:orientation="horizontal"
-                    android:layout_marginTop="15dp">
+                    android:layout_marginTop="15dp"
+                    android:layout_gravity="center_horizontal">
 
                     <TextView
                         android:layout_width="130dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginLeft="100dp"
                         android:layout_marginRight="5dp"
                         android:text="Consulta realizada em"
-                        android:textSize="12sp" />
+                        android:textSize="12sp"
+                        android:textColor="@color/preto"/>
 
                     <TextView
                         android:id="@+id/data_consulta"
@@ -63,7 +66,8 @@
                         android:layout_height="20dp"
                         android:layout_gravity="center_horizontal"
                         android:text="10/10/2010"
-                        android:textSize="12sp" />
+                        android:textSize="12sp"
+                        android:textColor="@color/preto"/>
 
                 </LinearLayout>
 
@@ -87,21 +91,21 @@
 
                 <ListView
                     android:id="@+id/list_ultimos_lancamentos"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginTop="20dp" />
-
-                <Button
-                    android:id="@+id/btn_ver_lancamentos"
-                    android:layout_width="220dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="15dp"
-                    android:background="@color/cinza"
-                    android:onClick="AbrirTela"
-                    android:text="Ver lançamentos do mês..." />
-
             </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_ver_lancamentos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:background="@color/cinzaClaro"
+                android:onClick="AbrirTela"
+                android:text="Ver todos os lançamentos" />
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

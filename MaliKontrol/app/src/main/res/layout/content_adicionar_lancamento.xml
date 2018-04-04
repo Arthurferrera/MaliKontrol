@@ -16,18 +16,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="Adicionando um Lançamento"
-                android:gravity="center"
-                android:background="@color/preto"
-                android:textColor="@color/branco"
-                android:textSize="24sp"
-                />
 
             <RadioGroup
                 android:layout_width="wrap_content"
@@ -128,6 +118,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
                     android:id="@+id/btn_salvar"
+                    android:background="@color/cinzaClaro"
                     android:onClick="salvar"/>
 
             </LinearLayout>

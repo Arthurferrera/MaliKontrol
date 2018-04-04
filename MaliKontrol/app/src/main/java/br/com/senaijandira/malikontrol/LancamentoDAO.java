@@ -78,12 +78,13 @@ public class LancamentoDAO {
 
         if (cursor.getCount() > 0){
             cursor.moveToFirst();
+
             Lancamento l = new Lancamento();
             l.setIdlancamento(cursor.getInt(0));
             l.setNome(cursor.getString(1));
-            l.setTipoLancamento(cursor.getString(2));
-            l.setValor(cursor.getDouble(3));
-            l.setData(cursor.getString(4));
+            l.setValor(cursor.getDouble(2));
+            l.setData(cursor.getString(3));
+            l.setTipoLancamento(cursor.getString(4));
             l.setIdCategoria(cursor.getInt(5));
             l.setNomeCategoria(cursor.getString(7));
 
@@ -103,5 +104,30 @@ public class LancamentoDAO {
         cursor.moveToFirst();
 
         return cursor.getDouble(0);
+    }
+
+    public Boolean excluir(Context context, Integer id){
+
+        SQLiteDatabase db = new DbHelper(context).getWritableDatabase();
+
+        db.delete("tbl_lancamentos", "_id = ?", new String[]{ id.toString() });
+
+        return true;
+    }
+
+    public boolean atualizar(Context context, Lancamento l){
+
+        SQLiteDatabase db = new DbHelper(context).getWritableDatabase();
+
+        ContentValues valores =  new ContentValues();
+        valores.put("nome", l.getNome());
+        valores.put("valor", l.getValor());
+        valores.put("data", l.getData());
+        valores.put("tipoLancamento", l.getTipoLancamento());
+        valores.put("idCategoria", l.getIdCategoria());
+
+        db.update("tbl_lancamentos", valores, "_id = ?", new String[] {String.valueOf(l.getIdlancamento())} );
+
+        return true;
     }
 }
