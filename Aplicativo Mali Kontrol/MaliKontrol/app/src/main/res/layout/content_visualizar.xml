@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="br.com.senaijandira.malikontrol.VisualizarActivity"
+    tools:showIn="@layout/activity_visualizar"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:textAlignment="center"
+                android:text="R$ 4,52"
+                android:gravity="center"
+                android:textSize="30sp"
+                android:background="@color/cinza"
+                android:id="@+id/txt_valor"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="40dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:textSize="20sp"
+                    android:text="Descrição:    "
+                    android:layout_marginLeft="15dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:textSize="20sp"
+                    android:text="Almoço"
+                    android:layout_marginLeft="15dp"
+                    android:id="@+id/txt_descricao"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:textSize="20sp"
+                    android:text="Categoria:    "
+                    android:layout_marginLeft="15dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:textSize="20sp"
+                    android:text="Alimentação"
+                    android:layout_marginLeft="15dp"
+                    android:id="@+id/txt_categoria"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:textSize="20sp"
+                    android:text="Data do Lançamento:    "
+                    android:layout_marginLeft="15dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:textSize="20sp"
+                    android:text="20/20/2015"
+                    android:layout_marginLeft="15dp"
+                    android:id="@+id/txt_data"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>
